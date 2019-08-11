@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Upload to AWS') {
             steps {
-		        withAWS(region:'us-east-2',credential:'aws-static'){
+		        withAWS(region:'us-east-2',credentials:'aws-static'){
 	    		    s3Upload(bucket:"audacity-cicd", pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:’index.html’ )
 		        }
             }
